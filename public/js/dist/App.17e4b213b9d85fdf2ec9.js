@@ -107,7 +107,7 @@ root.render( /*#__PURE__*/React.createElement(react__WEBPACK_IMPORTED_MODULE_0__
 /* harmony export */ });
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function About(props) {
-  return /*#__PURE__*/React.createElement("h1", null, "This is the About Component");
+  return /*#__PURE__*/React.createElement("h1", null, "This is the About Page");
 }
 
 /***/ }),
@@ -130,8 +130,6 @@ function About(props) {
 
 function Dashboard(props) {
   const [stocks, setStocks] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-
-  // Save stocks array
   async function getStocks() {
     try {
       const response = await fetch('/api/stocks');
@@ -183,7 +181,7 @@ function Dashboard(props) {
 /* harmony export */ });
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 function Home(props) {
-  return /*#__PURE__*/React.createElement("h1", null, "This is the Home Component");
+  return /*#__PURE__*/React.createElement("h1", null, "This is the Home Page");
 }
 
 /***/ }),
@@ -207,11 +205,7 @@ function Stock(props) {
   const params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)();
   const symbol = params.symbol;
   const url = "/api/stocks/".concat(symbol);
-
-  //state to hold the coin data
   const [stock, setStock] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
-
-  //function to fetch coin data
   const getStock = async () => {
     try {
       const response = await fetch(url);
@@ -221,23 +215,15 @@ function Stock(props) {
       console.error(error);
     }
   };
-
-  // useEffect to run getCoin when component mounts
   (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
     getStock();
   }, []);
-
-  // loaded function for when data is fetched
   const loaded = () => {
     return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, stock.name), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Symbol: ", stock.symbol), /*#__PURE__*/React.createElement("li", null, "Last Price: ", stock.lastPrice), /*#__PURE__*/React.createElement("li", null, "Change: ", stock.change), /*#__PURE__*/React.createElement("li", null, "High: ", stock.high), /*#__PURE__*/React.createElement("li", null, "Low: ", stock.low), /*#__PURE__*/React.createElement("li", null, "Open: ", stock.open)));
   };
-
-  // Function for when data doesn't exist
   const loading = () => {
     return /*#__PURE__*/React.createElement("h1", null, "Loading...");
   };
-
-  // if coin has data, run the loaded function, otherwise, run loading
   return stock ? loaded() : loading();
 }
 ;
@@ -265,7 +251,7 @@ var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBP
 ___CSS_LOADER_EXPORT___.push([module.id, `.jNadFe4u19lDdoI3ovzt {
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: purple;
   color: white;
   padding: 15px;
   font-size: 2em;
@@ -273,7 +259,7 @@ ___CSS_LOADER_EXPORT___.push([module.id, `.jNadFe4u19lDdoI3ovzt {
 .jNadFe4u19lDdoI3ovzt a {
   color: white;
   text-decoration: none;
-}`, "",{"version":3,"sources":["webpack://./src/components/Nav/Nav.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,8BAAA;EACA,uBAAA;EACA,YAAA;EACA,aAAA;EACA,cAAA;AACJ;AAAI;EACI,YAAA;EACA,qBAAA;AAER","sourcesContent":[".nav {\n    display: flex;\n    justify-content: space-between;\n    background-color: black;\n    color: white;\n    padding: 15px;\n    font-size: 2em;\n    a {\n        color: white;\n        text-decoration: none;\n    }\n}"],"sourceRoot":""}]);
+}`, "",{"version":3,"sources":["webpack://./src/components/Nav/Nav.module.scss"],"names":[],"mappings":"AAAA;EACI,aAAA;EACA,8BAAA;EACA,wBAAA;EACA,YAAA;EACA,aAAA;EACA,cAAA;AACJ;AAAI;EACI,YAAA;EACA,qBAAA;AAER","sourcesContent":[".nav {\n    display: flex;\n    justify-content: space-between;\n    background-color: purple;\n    color: white;\n    padding: 15px;\n    font-size: 2em;\n    a {\n        color: white;\n        text-decoration: none;\n    }\n}"],"sourceRoot":""}]);
 // Exports
 ___CSS_LOADER_EXPORT___.locals = {
 	"nav": `jNadFe4u19lDdoI3ovzt`

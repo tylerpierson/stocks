@@ -1,3 +1,3 @@
 export default function About(props) {
-    return <h1>This is the About Component</h1>
+    return <h1>This is the About Page</h1>
 }

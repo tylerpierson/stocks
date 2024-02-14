@@ -7,7 +7,6 @@ export default function Dashboard (props) {
   
     const [stocks, setStocks] = useState([])
     
-    // Save stocks array
     async function getStocks() {
         try {            
             const response = await fetch('/api/stocks')
