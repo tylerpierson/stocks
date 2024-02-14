@@ -9,8 +9,7 @@ module.exports = {
 
 async function index(req, res) {
     try {
-        const stocks = await Stock.find()
-        if (!stocks) throw new Error('could not find Stocks. Are there any created?')
+        const stocks = await Stock.find({})
         res.status(200).json(stocks)
     } catch (error) {
         res.status(400).json({ msg: error.message })

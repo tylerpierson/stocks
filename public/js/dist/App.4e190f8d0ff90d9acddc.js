@@ -121,9 +121,53 @@ function About(props) {
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
 /* harmony export */   "default": () => (/* binding */ Dashboard)
 /* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router-dom/dist/index.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+
+
+
 function Dashboard(props) {
-  return /*#__PURE__*/React.createElement("h1", null, "This is the Dashboard Component");
+  const [stocks, setStocks] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+
+  // Save stocks array
+  async function getStocks() {
+    try {
+      const response = await fetch('/api/stocks');
+      const data = await response.json();
+      setStocks(data);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    getStocks();
+  }, []);
+  const loaded = () => {
+    return /*#__PURE__*/React.createElement("div", {
+      className: "stocks"
+    }, /*#__PURE__*/React.createElement("table", null, /*#__PURE__*/React.createElement("thead", null, /*#__PURE__*/React.createElement("tr", null, /*#__PURE__*/React.createElement("th", null, "Name"), /*#__PURE__*/React.createElement("th", null, "Symbol"), /*#__PURE__*/React.createElement("th", null, "Last Price"), /*#__PURE__*/React.createElement("th", null, "Change"), /*#__PURE__*/React.createElement("th", null, "High"), /*#__PURE__*/React.createElement("th", null, "Low"), /*#__PURE__*/React.createElement("th", null, "Open"))), /*#__PURE__*/React.createElement("tbody", null, stocks.map((stock, index) => {
+      const {
+        name,
+        symbol,
+        lastPrice,
+        change,
+        high,
+        low,
+        open
+      } = stock;
+      return /*#__PURE__*/React.createElement("tr", {
+        key: index
+      }, /*#__PURE__*/React.createElement("td", null, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_1__.Link, {
+        to: "/stocks/".concat(symbol)
+      }, name)), /*#__PURE__*/React.createElement("td", null, symbol), /*#__PURE__*/React.createElement("td", null, lastPrice), /*#__PURE__*/React.createElement("td", null, change), /*#__PURE__*/React.createElement("td", null, high), /*#__PURE__*/React.createElement("td", null, low), /*#__PURE__*/React.createElement("td", null, open));
+    }))));
+  };
+  const loading = () => {
+    return /*#__PURE__*/React.createElement("h1", null, "Loading...");
+  };
+  return stocks ? loaded() : loading();
 }
 
 /***/ }),
@@ -151,12 +195,52 @@ function Home(props) {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ About)
+/* harmony export */   "default": () => (/* binding */ Stock)
 /* harmony export */ });
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! react */ "./node_modules/react/index.js");
+/* harmony import */ var react__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(react__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function About(props) {
-  return /*#__PURE__*/React.createElement("h1", null, "This is the About Component");
+
+
+function Stock(props) {
+  const params = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_1__.useParams)();
+  const symbol = params.symbol;
+  const url = "/api/stocks/".concat(symbol);
+
+  //state to hold the coin data
+  const [stock, setStock] = (0,react__WEBPACK_IMPORTED_MODULE_0__.useState)([]);
+
+  //function to fetch coin data
+  const getStock = async () => {
+    try {
+      const response = await fetch(url);
+      const data = await response.json();
+      setStock(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  // useEffect to run getCoin when component mounts
+  (0,react__WEBPACK_IMPORTED_MODULE_0__.useEffect)(() => {
+    getStock();
+  }, []);
+
+  // loaded function for when data is fetched
+  const loaded = () => {
+    return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("h1", null, stock.name), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Symbol: ", stock.symbol), /*#__PURE__*/React.createElement("li", null, "Last Price: ", stock.lastPrice), /*#__PURE__*/React.createElement("li", null, "Change: ", stock.change), /*#__PURE__*/React.createElement("li", null, "High: ", stock.high), /*#__PURE__*/React.createElement("li", null, "Low: ", stock.low), /*#__PURE__*/React.createElement("li", null, "Open: ", stock.open)));
+  };
+
+  // Function for when data doesn't exist
+  const loading = () => {
+    return /*#__PURE__*/React.createElement("h1", null, "Loading...");
+  };
+
+  // if coin has data, run the loaded function, otherwise, run loading
+  return stock ? loaded() : loading();
 }
+;
 
 /***/ }),
 
