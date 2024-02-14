@@ -12,10 +12,10 @@
 /* harmony export */   "default": () => (/* binding */ App)
 /* harmony export */ });
 /* harmony import */ var react_router_dom__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! react-router-dom */ "./node_modules/react-router/dist/index.js");
-/* harmony import */ var _pages_About_About__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/About/About */ "./src/pages/About/About.js");
+/* harmony import */ var _pages_Home_Home__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./pages/Home/Home */ "./src/pages/Home/Home.js");
 /* harmony import */ var _pages_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./pages/Dashboard/Dashboard */ "./src/pages/Dashboard/Dashboard.js");
-/* harmony import */ var _pages_Home_Home__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Home/Home */ "./src/pages/Home/Home.js");
-/* harmony import */ var _pages_Stock_Stock__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/Stock/Stock */ "./src/pages/Stock/Stock.js");
+/* harmony import */ var _pages_Stock_Stock__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./pages/Stock/Stock */ "./src/pages/Stock/Stock.js");
+/* harmony import */ var _pages_About_About__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/About/About */ "./src/pages/About/About.js");
 /* harmony import */ var _components_Nav_Nav__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/Nav/Nav */ "./src/components/Nav/Nav.js");
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
 
@@ -29,16 +29,16 @@ function App() {
     className: "App"
   }, /*#__PURE__*/React.createElement(_components_Nav_Nav__WEBPACK_IMPORTED_MODULE_4__["default"], null), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Routes, null, /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "/",
-    element: /*#__PURE__*/React.createElement(_pages_Home_Home__WEBPACK_IMPORTED_MODULE_2__["default"], null)
+    element: /*#__PURE__*/React.createElement(_pages_Home_Home__WEBPACK_IMPORTED_MODULE_0__["default"], null)
+  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
+    path: "/about",
+    element: /*#__PURE__*/React.createElement(_pages_About_About__WEBPACK_IMPORTED_MODULE_3__["default"], null)
   }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
     path: "/dashboard",
     element: /*#__PURE__*/React.createElement(_pages_Dashboard_Dashboard__WEBPACK_IMPORTED_MODULE_1__["default"], null)
   }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-    path: "/about",
-    element: /*#__PURE__*/React.createElement(_pages_About_About__WEBPACK_IMPORTED_MODULE_0__["default"], null)
-  }), /*#__PURE__*/React.createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_5__.Route, {
-    path: "/stock/:symbol",
-    element: /*#__PURE__*/React.createElement(_pages_Stock_Stock__WEBPACK_IMPORTED_MODULE_3__["default"], null)
+    path: "/stocks/:symbol",
+    element: /*#__PURE__*/React.createElement(_pages_Stock_Stock__WEBPACK_IMPORTED_MODULE_2__["default"], null)
   })));
 }
 
@@ -68,8 +68,8 @@ const Nav = props => {
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Home")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
     to: "/about"
   }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "About")), /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement(react_router_dom__WEBPACK_IMPORTED_MODULE_2__.Link, {
-    to: "/stocks"
-  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Stocks")));
+    to: "/dashboard"
+  }, /*#__PURE__*/react__WEBPACK_IMPORTED_MODULE_0___default().createElement("div", null, "Dashboard")));
 };
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (Nav);
 
@@ -151,11 +151,11 @@ function Home(props) {
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 /* harmony export */ __webpack_require__.d(__webpack_exports__, {
-/* harmony export */   "default": () => (/* binding */ Stock)
+/* harmony export */   "default": () => (/* binding */ About)
 /* harmony export */ });
 /* provided dependency */ var React = __webpack_require__(/*! react */ "./node_modules/react/index.js");
-function Stock(props) {
-  return /*#__PURE__*/React.createElement("h1", null, "This is the Stock Component");
+function About(props) {
+  return /*#__PURE__*/React.createElement("h1", null, "This is the About Component");
 }
 
 /***/ }),
