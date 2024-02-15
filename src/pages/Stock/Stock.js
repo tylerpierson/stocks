@@ -21,7 +21,7 @@ export default function Stock (props) {
   useEffect(() => {
     getStock()
   }, [])
-//
+
   const loaded = () => {
     return (
       <div>
